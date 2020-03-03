@@ -1,0 +1,573 @@
+* 
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  // border: 1px solid black
+  position: relative
+  font-family: Noto Sans TC
+$color_blue: #142c4b
+$ani-speed: 2s
+$ani-delay: 1s
+
+@mixin imgContainer
+  transition: all 0.3s
+  min-width: 50vw
+  height: 50vh
+  background-size: cover
+  background-attachment: fixed
+@mixin imgLeftContainer
+  transition: all 0.3s
+  width: 30vw
+  height: 40vh
+  background-size: cover
+  background-attachment: fixed
+@mixin fixed
+    nav
+        top: 0
+        position: fixed
+        width: 100%
+        height: 100%
+        padding: 15px
+        text-align: center
+        z-index: 2
+        height: 60px
+        background-color: black
+        transition: all 0.5s
+        ul
+          width: 100% 
+          height: 100%
+          // position: absolute
+          margin-left: auto
+          li
+            width: 100px
+            height: 100%
+            list-style: none
+            float: right
+            font-size: 1.2em
+            a
+              text-decoration: none
+              color: white
+@mixin center
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50% , -50%)
+  // color: $color_blue
+  text-decoration: none
+@mixin textRight
+  margin-left: auto
+  background: white
+  transition: all 0.3s 
+  width: 60vw
+  max-width: 65vw
+  height: 60vh
+  text-align: center
+  background-color: #fff
+  &:after
+    position: absolute
+    transition: 0.3s
+    content: ""
+    right: 0
+    width: 0
+    left: auto
+    bottom: 0
+    height: 4px
+    background: #f7f7f7
+  &:hover
+    background-color: #172735
+    color: white
+    &:after
+      width: 100%
+      left: 0
+  p
+    +center
+    +textp
+  .span
+    +spanLeft
+    &::before
+      +pbeforeRight
+      font-size: 30px
+@mixin textLeft
+  cursor: pointer
+  transition: all 0.3s 
+  max-width: 50vw
+  height: 40vh
+  top: 20%
+  left: -20%
+  position: absolute
+  text-align: center
+  background-color: #fff
+  &:after
+    position: absolute
+    transition: 0.3s
+    content: ""
+    right: 0
+    width: 0
+    left: auto
+    bottom: 0
+    height: 4px
+    background: #f7f7f7
+  &:hover
+    background-color: #172735
+    color: white
+    &:after
+      width: 100%
+      left: 0
+  p
+    +center
+    +textp
+  .span
+    +spanLeft
+    &::before
+      +pbeforeRight
+      font-size: 30px
+@mixin textp
+    transition: all 0.3s
+    width: auto
+    height: auto
+    font-size: 2em
+    position: absolute
+    margin: auto
+    &:hover
+      color: white
+@mixin spanLeft
+    transition: 0.3s
+    width: 50px
+    height: 50px
+    top: 50%
+    transform: translateY(-50%)
+    margin-left: calc(100% - 120px)
+@mixin spanRight
+    width: 50px
+    height: 50px
+    top: 50%
+    transform: translateY(-50%)
+@mixin pbeforeRight
+    height: 50px
+    content: '>'
+    line-height: 45px
+    cursor: pointer
+@mixin pbeforeLeft
+    height: 50px
+    content: '<'
+    line-height: 45px
+    cursor: pointer
+a
+  color: $color_blue
+body
+  background-color: aliceblue
+.banner
+  height: 60vh
+  width: 100%
+  background-image: url('https://iso.500px.com/wp-content/uploads/2015/06/aerialNYC_cover.jpeg')
+  background-size: cover
+  background-attachment: fixed
+  .svgContainer
+    height: 300px
+    position: absolute
+    +center
+    z-index: 1
+    width: 40vw
+    .path 
+      stroke-dasharray: 2000
+      stroke-dashoffset: 100
+      animation: dash 8s , fillstyle 6s
+  .scroll
+      sapn
+        cursor: pointer
+        color: white
+        top: 66vh
+        position: absolute
+        z-index: 1
+        left: 50%
+        transform: translateX(-25%)
+  &:after
+    content: ""
+    opacity: 0.5
+    position: absolute
+    top: 0
+    left: 0
+    background-color: #1A237E
+    width: 100%
+    height: 60vh
+.HeaderContent
+  transition: all 0.5s
+  background-color: $color_blue
+  top: 0
+  width: 100%
+  height: 80px
+  .HomeLogo
+    height: 100%  
+    width: 100px
+    background-color: #fff
+    position: absolute
+    left: 0
+  .navContainer
+      transition: all 0.3s
+      position: absolute
+      width: 100%
+      height: 100%
+      padding: 10px
+      text-align: center
+      ul
+        padding-right: 20px
+        width: 100%
+        height: 100%
+        margin-left: auto
+        +center
+        li
+          margin-left: 24px
+          transition: all 0.3s
+          width: 100px
+          list-style: none
+          float: right
+          font-size: 1.2em
+          padding: 25px
+          a
+            text-decoration: none
+            color: white
+.fixed
+  transition: all 0.3s
+  background-color: white
+  position: fixed
+  top: 0
+  width: 100%
+  height: 60px
+  z-index: 2
+  .navContainer
+      transition: all 0.3s
+      position: absolute
+      width: 100%
+      height: 100%
+      text-align: center
+      ul
+        padding-right: 20px
+        width: 100%
+        height: 100%
+        margin-left: auto
+        li
+          margin-left: 16px
+          transition: all 0.3s
+          width: 100px
+          height: 100%
+          list-style: none
+          float: right
+          font-size: 1.2em
+          padding: 15px
+          a
+            text-decoration: none
+            color: $color_blue
+.AboutContentContainer
+  width: 100%
+  height: auto
+  .workContainerContent
+    background-image: url('https://images.unsplash.com/photo-1513366208864-87536b8bd7b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80')
+    background-size: cover
+    background-color: #fff
+    height: 85vh
+    max-width: 45vw
+    width: 40vw
+    z-index: -1
+  .workBox
+    background-color: $color_blue
+    width: 70vw
+    left: 50%
+    height: auto
+    position: absolute
+    margin-top: -10%
+    transform: translateX(-50%)
+    color: white
+    padding: 3%
+    nav
+      margin-top: 2%
+      width: 80%
+      margin-left: 20%
+      li
+        margin-top: 2%
+        list-style: none
+        &:before
+          content: ''
+          width: 52px
+          height: 2px
+          background-color: white
+          display: inline-block
+          margin-bottom: 0.5%
+          margin-right: 3%
+        p
+          font-size: 1em
+          display: inline-block
+        .workspan
+          max-width: 300px
+          display: block
+          left: 5.5vw
+          margin-top: 0.5%
+          font-size: 12px
+
+    h1
+      font-size: 1.5em
+      text-align: left
+      padding: 1%
+      padding-left: 20%
+.UiBoxContainer
+  margin-top: 8%
+  width: 100%
+  height: 100%
+  .UiImg
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 350px
+    height: 350px
+    transform: translate(-95% , -30%)
+    background-size: cover
+    background-image: url('https://images.unsplash.com/photo-1547027072-332f09bd6bb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+    background-position: 50% 50%
+  .AnimateImg
+    background-image: url('https://images.unsplash.com/photo-1498842812179-c81beecf902c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+  .UiText
+    padding-left: 15%
+    padding-top: 5%
+    background-color: white
+    max-width: 60vw
+    height: 400px
+    margin-left: auto
+    h2
+      // padding-top: 20px
+      font-size: 1.5em
+    span
+      display: block
+      &:before
+        margin-bottom: 1.5%
+        width: 52px
+        height: 1px
+        content: ''
+        display: inline-block
+        margin-right: 3%
+        background-color: black
+.scetion1
+  margin-top: 5%
+.WebBoxContainer
+  margin-top: 8%
+  width: 100%
+  height: 100%
+  .WebImg
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 350px
+    height: 350px
+    transform: translate(-10% , -30%)
+    background-size: cover
+    background-image: url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+    background-position: 50 50
+  .WebText
+    padding-left: 5%
+    padding-top: 5%
+    background-color: white
+    max-width: 60vw
+    height: 400px
+    margin-right: auto
+    h2
+      // padding-top: 20px
+      font-size: 1.5em
+    span
+      display: block
+      &:before
+        margin-bottom: 1.5%
+        width: 52px
+        height: 1px
+        content: ''
+        display: inline-block
+        margin-right: 3%
+        background-color: black
+              
+.footerCenter
+  margin-top: 8%
+  padding: 0
+  background-color: $color_blue
+  width: 100%
+  height: auto
+  .footerText
+    width: 100%
+    padding: 15px
+    text-align: center
+    color: white
+    span
+      padding: 15px
+  .footerBox
+    text-align: center
+    color: white
+    height: 100%
+    width: 80vw
+    margin-left: auto
+    margin-right: auto
+    .footerLogo
+      height: auto
+      max-width: 400px
+      margin-left: auto
+      margin-right: auto
+      background-repeat: none
+      background-size: cover
+      padding: 20px
+      img
+        width: 100%
+        height: 100%
+    .footerIcon
+      width: 50vw
+      margin-left: auto
+      margin-right: auto
+      height: auto
+      .footerIconImg
+        margin-left: 5%
+        width: 40px
+        height: auto
+        display: inline-block
+        cursor: pointer
+        img
+          width: 100%
+          height: 100%
+          padding: 5px
+        
+     
+    
+
+ 
+//animationContainer
+
+.arrow 
+    opacity: 0
+    position: absolute
+    left: 50%
+    top: 95vh
+    transform-origin: 50% 50%
+    // transform: translate3d(-50%, -80%, 0)
+
+
+.arrow-first 
+    animation: arrow-movement $ani-speed ease-in-out infinite
+
+.arrow-second 
+    animation: arrow-movement $ani-speed $ani-delay ease-in-out infinite
+
+
+.arrow:before,
+.arrow:after 
+    background: #fff
+    content: ''
+    display: block
+    height: 3px
+    position: absolute
+        top: 0
+        left: 0
+    width: 20px
+
+
+.arrow:before
+    transform: rotate(45deg) translateX(-23%)
+    transform-origin: top left
+
+
+.arrow:after
+    transform: rotate(-45deg) translateX(19%)
+    transform-origin: top right
+
+
+// Animation
+@keyframes arrow-movement 
+    0% 
+        opacity: 0
+        top: 90%
+    
+    70% 
+        opacity: 1
+    
+    100%  
+        opacity: 0
+    
+
+
+.animated 
+  visibility: visible
+  animation-fill-mode: both
+  animation-duration: 1.5s
+  // animation-play-state: running
+@keyframes fadeInUp
+  0%
+    opacity: 0
+    transform: translateY(20px)
+  100%
+    opacity: 1
+    transform: translateY(0px)
+.animatable 
+  visibility: hidden
+  animation-play-state: paused
+.fadeInUp
+  animation-name: fadeInUp
+  
+  
+  @keyframes dash 
+    0%
+      // fill: transparent
+      stroke-dashoffset: 2000
+    100%
+      stroke-dashoffset: 0
+  
+    
+  @keyframes fillstyle
+    0%
+      fill: transparent
+    90%
+      fill: transparent
+    100%
+      fill: white
+      
+ 
+  
+@media screen and (max-width: 768px)
+  .AboutContentContainer
+    workContainerContent
+      display: none
+  .HeaderContent,fixed,#fexidHeader,.arrow.arrow-first,.arrow.arrow-second,.scroll,workContainerContent
+    display: none
+  .banner
+    height: 40vh
+    &:after
+      height: 40vh
+  .AboutContentContainer
+    .workBox
+      padding: 20px
+      width: 95vw
+      margin-top: -20%
+      h1
+        padding-left: 10%
+      nav
+        margin-left: 10%
+  .UiContainer
+    margin-top: 20%
+    .UiText
+      height: 300px
+      min-width: 90vw
+      padding-left: 25%
+    .UiImg
+      top: 83%
+      left: 29%
+      width: 100px
+      height: 100px
+  .UiBoxContainer:nth-child(1)
+    margin-top: 0
+  .Webcontainer
+    margin-top: 20%
+    .WebText
+      height: 300px
+      min-width: 90vw
+      padding-left: 25%
+    .WebImg
+      width: 100px
+      height: 100px
+      top: 83%
+      left: 73%
+  
+  .footerCenter
+    margin-top: 20%
+    .footerLogo
+      width: 150px
